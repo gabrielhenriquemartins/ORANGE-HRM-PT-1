@@ -1,0 +1,42 @@
+reporting-disabled: false
+
+http:
+  enabled: true
+  bind-address: ":8086"
+
+logging:
+  level: info
+
+auth:
+  enabled: true
+  log-enabled: true
+
+meta:
+  dir: "/var/lib/influxdb/meta"
+  retention-autocreate: true
+
+data:
+  dir: "/var/lib/influxdb/data"
+  engine: "tsm1"
+  wal-dir: "/var/lib/influxdb/wal"
+
+coordinator:
+  write-timeout: "10s"
+
+retention:
+  enabled: true
+  check-interval: "30m"
+
+monitor:
+  store-enabled: false
+
+http-api:
+  bind-address: ":8086"
+  read-timeout: "5s"
+  flux-enabled: true
+  flux-log-enabled: true
+
+input-plugins:
+  influxdb:
+    enabled: true
+    config: {}

@@ -22,7 +22,8 @@ Candidate Records
     Click     ${purge_records}
     Click     ${candidate_records}
     Fill Text     ${type_hints}    Software Engineer
-    Click     //*[@class="oxd-autocomplete-option"]//*[contains(text(), '${profession}')]
+    ${custom_profession}   Replace String    ${custom_autocomplete}    custom    ${profession}
+    Click     ${custom_profession}
     Click     ${bt_submit}
     ${status}     Run Keyword And Return Status    Check Toast Message    No Records Found
     IF    '${status}' == 'False'

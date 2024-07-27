@@ -15,7 +15,8 @@ Open Left Menu
     ...    
     [Arguments]    ${menu}
     Reload
-    Click    //span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='${menu}']
+    ${custom_menu}   Replace String    ${custom_span}    custom    ${menu}
+    Click    ${custom_menu}
 
 Check Toast Message
     [Documentation]    General keyword used to check the toast pop-up.
@@ -33,7 +34,8 @@ Check Toast Message
     ...    |Check Toast Message |   Successfully Saved |
     ...    
     [Arguments]   ${message}
-    Wait Until Keyword Succeeds    3x    2s     Get Element States    //*[@class="oxd-text oxd-text--p oxd-text--toast-message oxd-toast-content-text" and text()='${message}']   validate    value & visible
+    ${custom_toast}   Replace String    ${custom_toast_msg}    custom    ${message}
+    Wait Until Keyword Succeeds    3x    2s     Get Element States    ${custom_toast}   validate    value & visible
 
 Select Sub Menu
     [Documentation]    General keyword used to open a Sub Menu
@@ -46,9 +48,11 @@ Select Sub Menu
     ...    Dependency: Must be at the home page, and the page should contain sub-menus visible.
     ...    
     [Arguments]   ${menu}    ${sub_menu}=none   ${endpoint}=none
-    Click     //*[@class="oxd-topbar-body-nav-tab-item"][contains(text(), '${menu}')]
+    ${custom_menu}    Replace String    ${custom_menu}    custom    ${menu}
+    Click     ${custom_menu}
     IF    '${sub_menu}' != 'none'
-        Click     //*[@class="oxd-topbar-body-nav-tab-link" and text()="${sub_menu}"]
+        ${custom_submenu}    Replace String    ${custom_submenu}    custom    ${sub_menu}
+        Click     ${custom_submenu}
     END
     IF    '${endpoint}' != 'none'
         ${current_url}     Get Url    
@@ -110,7 +114,8 @@ Verify Pdf Uploaded
     ...    | Verify Pdf Uploaded   |
     ...    
     [Arguments]    ${pdf_name}
-    Get Element States    //*[@class="oxd-text oxd-text--span" and text()='${pdf_name}']
+    ${custom_pdf_name}   Replace String    ${custom_pdf}    custom    ${pdf_name}
+    Get Element States    ${custom_pdf_name}
 
 Maintenance Password
     [Documentation]    Do not use this keyword alone, it is part of the Candidate Records KW.

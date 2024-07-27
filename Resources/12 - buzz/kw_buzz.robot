@@ -37,7 +37,8 @@ Check Published Message
     ...    | Check Published Message        |   Holla amigos!           |
     ...    
     [Arguments]    ${message}
-    Get Element States    (//*[@class="oxd-text oxd-text--p orangehrm-buzz-post-body-text" and text()="${message}"])[1]
+    ${custom_post}   Replace String    ${custom_message}    custom    ${message}
+    Get Element States    (${custom_post})[1]
 
 React to the first Message with a Heart
     [Documentation]    This test will like the first message, it must be a new message or

@@ -18,7 +18,8 @@ Add KPI
     Click    ${button_add_v2}
     Fill Text    ${field_text}    ${kpi}
     Click    ${dropdown}
-    Click    //*[@class="oxd-select-option"]//*[contains(text(), '${job_title}')]
+    ${custom_job_title}   Replace String    ${custom_option}    custom    ${job_title}
+    Click    ${custom_job_title}
     Click    ${bt_submit}
 
 Delete KPI

@@ -94,7 +94,8 @@ Add Project and Activities
     Click    ${button_add_v2}
     Fill Text     ${field_text}     ${project_name}
     Fill Text    (${autocomplete})[1]   ${customer}
-    Click        //*[@class="oxd-autocomplete-option"]//*[contains(text(), '${customer}')]
+    ${custom_customer}   Replace String    ${custom_autocomplete}    custom    ${customer}
+    Click        ${custom_customer}
     Click    ${bt_submit}
     Wait Until Keyword Succeeds   3x   2s     Click    ${button_add_v2}
     Fill Text    (${general_field_text})[3]    ${activity}
@@ -118,8 +119,10 @@ Add Row in My Timesheet
     IF    "${status}" == "FAIL"
         Click    ${add_row}
     END
-    Fill Text    (${autocomplete})[1]    ${project}
-    Click        //*[@class="oxd-autocomplete-option"]//*[contains(text(), '${project}')]
+    Fill Text    (${autocomplete})[1]     ${project}
+    ${custom_project}   Replace String    ${custom_autocomplete}    custom    ${project}
+    Click    ${custom_project}
     Click    (${dropdown})[1]
-    Click    //*[@class="oxd-select-option"]//*[contains(text(), '${activity}')]
+    ${custom_activity}   Replace String    ${custom_option}    custom    ${activity}
+    Click    ${custom_activity}
     Click    ${bt_submit}

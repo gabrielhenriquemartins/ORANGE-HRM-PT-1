@@ -79,9 +79,11 @@ Submit Claim
     [Arguments]    ${event}    ${currency}
     Wait Until Keyword Succeeds   3x   2s    Select Sub Menu   Submit Claim    endpoint=claim/submitClaim
     click    ${dropdown_1}
-    click    //*[@class="oxd-select-option"]//*[contains(text(), '${event}')]
+    ${custom_event}   Replace String    ${custom_option}    custom    ${event}
+    Click    ${custom_event}
     click    ${dropdown_2}
-    click    //*[@class="oxd-select-option"]//*[contains(text(), '${currency}')]
+    ${custom_currency}   Replace String    ${custom_option}    custom    ${currency}
+    Click    ${custom_currency}
     Click    ${bt_submit}
 
 Add Expenses
@@ -102,7 +104,8 @@ Add Expenses
     [Arguments]    ${expense}    ${amount}    
     Click   ${button_add_1}
     Click   ${input_text}
-    Click   //*[@class="oxd-select-option"]//*[contains(text(), '${expense}')]
+    ${custom_expense}   Replace String    ${custom_option}    custom    ${expense}
+    Click    ${custom_expense}
     Click   ${date}
     Click   ${today_date}
     Fill Text    ${field_expense}    ${amount}  
@@ -147,4 +150,5 @@ Verify Added Expense
     ...    | Verify Added Expense     |
     ...    
     [Arguments]    ${expense}
-    Get Element States    //*[@class="oxd-table-card-cell"]//*[contains(text(), '${expense}')]
+    ${custom_expense}   Replace String    ${custom_table}    custom    ${expense}
+    Get Element States    ${custom_expense}

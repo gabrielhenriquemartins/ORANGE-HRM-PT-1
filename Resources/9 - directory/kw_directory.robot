@@ -18,7 +18,8 @@ Find Profession Role
     ...    
     [Arguments]    ${profession}
     Click     ${role_dropdown}
-    Click     //*[@class="oxd-select-option"]//*[contains(text(), '${profession}')]
+    ${custom_profession}   Replace String    ${custom_option}    custom    ${profession}
+    Click     ${custom_profession}
     Click     ${bt_submit}
 
 Find Location

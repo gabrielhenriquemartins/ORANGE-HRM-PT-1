@@ -13,4 +13,5 @@ Check If Dashboard ${dashboard_name} exists
     ...    Minimum Case: 
     ...    | Open Left Menu  | Dashboard |
     ...    | Check If Dashboard Employees on Leave Today exists |
-    Get Element States    //*[@class="oxd-text oxd-text--p" and text()="${dashboard_name}"]     validate    value & visible    
+    ${custom_dashboard}   Replace String    ${custom_text}    custom    ${dashboard_name}   
+    Get Element States    ${custom_dashboard}     validate    value & visible    

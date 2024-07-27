@@ -86,6 +86,17 @@ ${tf_middle_name}     //*[@name="middleName"]
 ${tf_last_name}       //*[@name="lastName"]
 ${tf_email}           //*[@placeholder="Type here"]
 
+${custom_option}          //*[@class="oxd-select-option"]//*[contains(text(), 'custom')]
+${custom_autocomplete}    //*[@class="oxd-autocomplete-option"]//*[contains(text(), 'custom')]
+${custom_text}            //*[@class="oxd-text oxd-text--p" and text()="custom"]
+${custom_table}           //*[@class="oxd-table-card-cell"]//*[contains(text(), 'custom')]
+${custom_message}         //*[@class="oxd-text oxd-text--p orangehrm-buzz-post-body-text" and text()="custom"]
+${custom_pdf}             //*[@class="oxd-text oxd-text--span" and text()='custom']
+${custom_toast_msg}       //*[@class="oxd-text oxd-text--p oxd-text--toast-message oxd-toast-content-text" and text()='custom']
+${custom_span}            //span[@class='oxd-text oxd-text--span oxd-main-menu-item--name' and text()='custom']
+${custom_menu}            //*[@class="oxd-topbar-body-nav-tab-item"][contains(text(), 'custom')]
+${custom_submenu}         //*[@class="oxd-topbar-body-nav-tab-link" and text()="custom"]
+
 ${ADMIN_USERNAME}    Admin
 ${ADMIN_PASSWORD}    admin123
 ${VIDEO_DIR}    /opt/robotframework/Results/

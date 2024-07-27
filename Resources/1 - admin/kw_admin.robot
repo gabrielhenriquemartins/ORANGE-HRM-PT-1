@@ -53,7 +53,8 @@ Add Location
     Wait Until Keyword Succeeds   3x   2s    Select Sub Menu   Organization    Locations    admin/viewLocations
     Click    ${button_add_v2}
     Click    ${dropdown}
-    Click        //*[@class="oxd-select-option"]//*[contains(text(), '${country}')]
+    ${custom_country}   Replace String    ${custom_option}    custom    ${country}
+    Click        ${custom_country}
     Fill Text    ${field_text}    ${name}
     Fill Text    (${general_field_text})[2]    ${city}
     Fill Text    (${general_field_text})[3]    ${state}

@@ -25,7 +25,7 @@ The entire test script is already finalized, so you just need to follow a few in
 
 1. Instalation (windows)
    1. [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
-   2. The entire application is based on Docker, so essentially, you just need Docker Desktop running on your machine. The path to docker must be set in windows_execution.bat.
+   2. The entire application is based on Docker, so essentially, you just need Docker Desktop running on your machine, python and some libraries. The path to docker must be set in windows_execution.bat.
    3. It's necessary a jira account and a xray plugin installed in your jira, to run windows_execution_update_jira.bat. To configure the project correctly, you need to generate an api_token for your jira, and a client_id and client_secret in Xray, to the script be able to send the results to your project. Configure all details in import_results_to_jira, and update_tests_into_jira.
 2. Repositoy Overview
    1. Docs - Lirabry documentation, generated for all created keywords;
@@ -76,5 +76,21 @@ First of all, let's check how they are defined and how the applications relate t
 > Feel free to improve this test script!
 
 ## Next steps
+This is the first part of our project. The next steps will be developed in Part Two, which includes the following plans:
 
-The next step will be to incorporate K8s in this project, backend tests, web Testing with cumcumber and Karate. Also, I would like to add a performance test as well.
+* Incorporate a Jenkins container for orchestration;
+* Backend tests using Robot Framework;
+* Introduction of Cypress to Orange HRM;
+* Jira validations using the Jira API, followed by a new dashboard with:
+  * Most used test cases;
+  * Obsolete tests;
+  * Empty tests;
+  * Number of tests by project;
+  * And more...
+
+Future Backlog:
+* Gatling for performance tests;
+* Postman with Newman;
+* A new Gatling Dashboard;
+* A new dashboard displaying machine performance and internet stability during execution;
+* Kubernetes (K8s) integration.

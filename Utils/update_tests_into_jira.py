@@ -105,7 +105,7 @@ def get_last_issue_id():
     search_for_test_url = f'https://{JIRA}/rest/api/2/search'
 
     # JQL query to get the latest test
-    jql = 'project = OTS AND issuetype = Test ORDER BY created DESC'
+    jql = f'project = {project_key} AND issuetype = Test ORDER BY created DESC'
     max_results = 1
 
     auth = HTTPBasicAuth(USER, API_TOKEN)
@@ -177,7 +177,7 @@ def find_and_replace(TEST_NUMBER, TEST_NAME):
                     with open(file_path, 'r', encoding='utf-8') as file:
                         for index, line in enumerate(file):
                             if control_variavel == 1:
-                                modified_line = line.replace('OTS-XXX', f'OTS-{TEST_NUMBER}')
+                                modified_line = line.replace('OTS-XXX', f'{}-{TEST_NUMBER}')
                                 modified_lines.append(modified_line)
                                 control_variavel = 0
                             else:

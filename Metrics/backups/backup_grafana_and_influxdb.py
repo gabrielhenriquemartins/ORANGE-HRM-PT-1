@@ -11,8 +11,8 @@ volume_influxdb = 'metrics_influxdb-storage'
 grafana_container = "metrics-grafana-1"
 influx_container = "metrics-influxdb-1"
 
-backup_dir_grafana = "C:\\Users\\Gabriel\\Desktop\\ORANGE\\metrics\\backups\\grafana"
-backup_dir_influxdb = "C:\\Users\\Gabriel\\Desktop\\ORANGE\\metrics\\backups\\influxdb"
+backup_dir_grafana = "your-path-to-backup-grafana-folder"
+backup_dir_influxdb = "your-path-to-backup-influx-folder"
 
 backup_grafana = f"grafana_backup_{datetime.now().strftime('%Y%m%d')}.tar.gz"
 backup_influxdb = f"influxdb_backup_{datetime.now().strftime('%Y%m%d')}.tar.gz"
